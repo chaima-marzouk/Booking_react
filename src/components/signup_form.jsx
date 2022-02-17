@@ -12,19 +12,24 @@ function Signup_form(){
             <img className='image' src={img} alt="test" />
             <div className='form'>
 
-            <h1 className='title'> title is here </h1>
-            <h3>test test</h3>
-            <input type="text" placeholder='Entre name please' /><br />
-            <input type="text" placeholder='Entre email please' /><br />
-            <input type="text" placeholder='Entre password please'  /><br />
-            <input type="text" placeholder='Comfirm password please' /><br />
+            <h1 className='title'> Commencez à planifier votre prochaine escapade ! </h1>
+            <h3>Signup :</h3>
+            <form action="">
+                <input type="text" placeholder='Entre name please' /><br />
+                <input type="text" placeholder='Entre email please' /><br />
+                <input type="text" placeholder='Entre password please'  /><br />
+                <input type="text" placeholder='Comfirm password please' /><br />
+                <div id="profile-container">
+                <input type="file" hidden name='profil_pic'/><br />
+                </div>
+            </form>
             <div className='button_parent'>
 
             <button class="button button2" type='submit'>Submit</button>
             </div>
-            <h5>Already have an account ? 
+            <h5>Already have an account ?  
                 <Link to="/signin">
-                    <span>Signin now !</span>
+                    <span> Signin now !</span>
                 </Link>
             </h5>
             </div>

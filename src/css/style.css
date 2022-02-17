@@ -70,7 +70,8 @@ input{
     border-color: white;
     padding: 11px 27px;
     margin-top: 20px;
-    width: 105%;
+    width: 72%;
+    margin: 10px 66px;
     color: white;
 }
 
@@ -81,7 +82,7 @@ span{
 
 h5{
     color: white;
-    margin-left: 38px;
+    margin-left: 204px;
 }
 
 
@@ -97,7 +98,7 @@ h5{
     background-color: #DCB898;
     border-radius: 10px;
     border: none;
-    margin-left: 29%;
+    margin-left: 36%;
     
   }
   
@@ -105,3 +106,4 @@ h5{
     background-color: #54b1d3; /* Green */
     color: white;
   }
+/*  */
