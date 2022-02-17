@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography';
@@ -19,18 +20,21 @@ class SignInForm extends React.Component{
     }
 
 
-    formSubmit = ()=>{
+    formSubmit = (event)=>{
+        event.preventDefault()
+
+        axios.post("http://localhost:8080/api/users")
 
     }
 
 
     render(){
-        return  <form style={{width: "100%", height: "100%"}} onSubmit= {this.formSubmit()}>
+        return  <form style={{width: "100%", height: "100%"}} onSubmit= {this.formSubmit}>
                     <Box sx={{width: "100%", height: "100%", border: "1px solid white", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <Typography variant="h5">SIGN In</Typography>
                     <Typography variant="h7" sx={{marginBottom: "10px"}}>enter your information ! </Typography>
-                    <TextField onChange={e=> this.setState({username: e.target.value})} sx={{width: "70%"}} helperText="Please enter a Username" id="demo-helper-text-misaligned" label="Username"/>
-                    <TextField onChange={e=> this.setState({password: e.target.value})} sx={{width: "70%"}} helperText="Please enter a Password" id="demo-helper-text-misaligned" label="Password"/>
+                    <TextField onChange={(e)=>{this.setState({username: e.target.value})}} sx={{width: "70%"}} helperText="Please enter a Username" id="demo-helper-text-misaligned" label="Username"/>
+                    <TextField onChange={(e)=>{this.setState({password: e.target.value})}} sx={{width: "70%"}} helperText="Please enter a Password" id="demo-helper-text-misaligned" label="Password"/>
                     <Box sx={{width: "70%"}}>
                         <FormControlLabel label="Remember Me" control={<Checkbox />}/>
                     </Box>
