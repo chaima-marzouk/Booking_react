@@ -37,10 +37,6 @@ class SignUpForm extends React.Component {
     
         }
 
-    componentDidMount(){
-        // this.formSubmit
-        
-    }
 
     render(){
             return <form style={{width: "100%", height: "100%"}} onSubmit={this.formSubmit}>
