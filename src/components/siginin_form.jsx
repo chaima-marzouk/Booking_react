@@ -1,5 +1,6 @@
 import '../css/style.css'
 import img from '../img/pexels-marlene-leppänen-4370440.jpg'
+import React from 'react';
 
 
 function Signin_form(){
