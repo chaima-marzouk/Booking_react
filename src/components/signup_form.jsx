@@ -1,6 +1,8 @@
 import '../css/style.css'
 import img from '../img/pexels-marlene-leppänen-4370440.jpg'
 import React from 'react';
+import {Link} from "react-router-dom"
+
 
 
 function Signup_form(){
@@ -20,7 +22,11 @@ function Signup_form(){
 
             <button class="button button2" type='submit'>Submit</button>
             </div>
-            <h5>Already have an account ? <span>Signin now !</span></h5>
+            <h5>Already have an account ? 
+                <Link to="/signin">
+                    <span>Signin now !</span>
+                </Link>
+            </h5>
             </div>
         </div>
     </div>
