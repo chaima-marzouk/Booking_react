@@ -75,7 +75,7 @@ export default function BasicModal() {
 </FormControl>
 
 <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}}  component="label">  Image Cover 
-    <input type="file"  multiple accept="image/*" hidden/>
+    <input type="file"  accept="image/*" hidden/>
 </Button>
 
 <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%"}}  component="label">  Images Hotel 
