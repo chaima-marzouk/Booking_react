@@ -15,7 +15,7 @@ import {Routes, Route} from "react-router-dom"
 import SideBar from './sidebar';
 import SignIn from '../authentification/signIn';
 import ModalUser from './modal_add_User';
-import ModalHotel from './modal_add_User';
+import ModalHotel from './modal_Add_Hotel';
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
