@@ -14,7 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import {Routes, Route} from "react-router-dom"
 import SideBar from './sidebar';
 import SignIn from '../authentification/signIn';
-import BasicModal from './modal_add';
+import ModalUser from './modal_add_User';
+import ModalHotel from './modal_add_User';
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -126,7 +127,8 @@ const ResponsiveAppBar = () => {
           ))}
         </Menu>
       </Box>
-        <BasicModal/>
+        <ModalUser/>
+        <ModalHotel/>
     </Toolbar>
   </Container>
     </AppBar>

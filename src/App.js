@@ -5,7 +5,8 @@ import SignUp from './components/authentification/signUp';
 import Profil from './components/profil';
 import Dashboard from './components/Admin/dashboard'
 import SideBar from './components/Admin/sidebar';
-import Model from './components/Admin/modal_add';
+import ModelH from './components/Admin/modal_Add_Hotel';
+import ModelU from './components/Admin/modal_add_User';
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,7 @@ function App() {
         <Route path='signup' element= {<SignUp/>}/>
         <Route path='profil' element= {<Profil/>}/>
         <Route path='Dashbaord/*' element= {<Dashboard/>}/>
-        <Route path='Model' element= {<Model/>}/>
+        <Route path='Model' element= {<ModelH/>}/>
         
         
       </Routes>

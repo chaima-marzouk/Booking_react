@@ -8,9 +8,11 @@ class SideBar extends React.Component {
         return<Box  
                    sx={{
             width: 200,
-            height: 1000,
+            height: '100vh',
+            padding: '2rem 0',
             backgroundColor: 'white',
-            marginLeft: '151px'
+            marginLeft: '151px',
+            boxShadow: '0px 2px 8px rgba(0, 0, 0, .2)'
           }}>
               <Link href="/Dashbaord/hotels" underline="hover">
              <Button
@@ -20,7 +22,7 @@ class SideBar extends React.Component {
                 marginTop: "222px"
              }} 
              
-             variant="contained" display="inline" color="success" >Hotels</Button> 
+             variant="contained" display="inline"  >Hotels</Button> 
              </Link>
              <Link href="/Dashbaord/users" underline="hover">
              <Button
@@ -28,7 +30,7 @@ class SideBar extends React.Component {
                 width: "64%",
                 marginBottom: "39px"
              }}
-              variant="contained" display="inline" color="success" >Users</Button>
+              variant="contained" display="inline" >Users</Button>
               </Link>
         </Box>
 
