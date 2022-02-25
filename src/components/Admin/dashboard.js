@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route ,Outlet} from "react-router-dom"
 import SideBar from './sidebar';
 import SignIn from '../authentification/signIn';
 import ModalUser from './modal_add_User';
@@ -132,15 +132,13 @@ onClose={handleCloseUserMenu}
 </Toolbar>
 </Container>
 </AppBar>
+<Outlet />
 <SideBar/>
 
 
 
 
-<Routes>
-<Route path = "/hotels" element= {<h1>hotels</h1>}/>
-<Route path = "/users" element= {<SignIn/>}/>
-</Routes>
+
 
 </Box>
 

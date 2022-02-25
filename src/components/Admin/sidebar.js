@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import { Link } from "@mui/material";
+import { Link } from 'react-router-dom';
 
 class SideBar extends React.Component {
     render(){
@@ -14,7 +14,7 @@ class SideBar extends React.Component {
             marginLeft: '151px',
             boxShadow: '0px 2px 8px rgba(0, 0, 0, .2)'
           }}>
-              <Link href="/Dashbaord/hotels" underline="hover">
+              <Link to="hotels" underline="hover">
              <Button
              sx={{
                 width: "64%",
@@ -24,7 +24,7 @@ class SideBar extends React.Component {
              
              variant="contained" display="inline"  >Hotels</Button> 
              </Link>
-             <Link href="/Dashbaord/users" underline="hover">
+             <Link to="users" underline="hover">
              <Button
               sx={{
                 width: "64%",
