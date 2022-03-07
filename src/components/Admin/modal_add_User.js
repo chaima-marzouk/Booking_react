@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
+// import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 
 const style = {
@@ -63,7 +63,7 @@ export default function BasicModal() {
       <label htmlFor="icon-button-file">
         <Input accept="image/*" id="icon-button-file" type="file" />
         <IconButton color="primary" aria-label="upload picture" component="span">
-          <PhotoCamera />
+          {/* <PhotoCamera /> */}
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
