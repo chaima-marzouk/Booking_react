@@ -104,7 +104,7 @@ const addHotel = (props) => {
 
 
 
-        <form >
+        <form  onSubmit={addHotel}>
 
       <TextField id="outlined-basic" onChange={(e)=>setname(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter hotel Name" name='fname'  />
       <TextField id="outlined-basic"onChange={(e)=>setdisc(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter Descreption " name='ldescription'  />
