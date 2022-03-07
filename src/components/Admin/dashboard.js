@@ -16,7 +16,8 @@ import SideBar from './sidebar';
 import SignIn from '../authentification/signIn';
 import ModalUser from './modal_add_User';
 import ModalHotel from './modal_Add_Hotel';
-
+// import AllHotels from './AllHotels'
+import AllHotels from './AllHotels'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -132,8 +133,14 @@ onClose={handleCloseUserMenu}
 </Toolbar>
 </Container>
 </AppBar>
-<Outlet />
+
+<Box>
+
 <SideBar/>
+ <Outlet />
+</Box>
+
+{/* <AllHotels /> */}
 
 
 

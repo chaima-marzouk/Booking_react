@@ -8,6 +8,8 @@ import Dashboard from './components/Admin/dashboard'
 import SideBar from './components/Admin/sidebar';
 import ModelH from './components/Admin/modal_Add_Hotel';
 import ModelU from './components/Admin/modal_add_User';
+import Hotels from './components/Admin/AllHotels'
+// import  Hotels  from '@mui/icons-material';
 
 
 
@@ -27,7 +29,7 @@ function App() {
         <Route path='signup' element= {<SignUp/>}/>
         <Route path='profil' element= {<Profil/>}/>
         <Route path='Dashbaord' element= {<Dashboard/>}>
-              <Route path = "hotels" element= {<h1>Hotels</h1>}/>
+              <Route path = "hotels" element=  {<Hotels/>}/>
               <Route path = "users" element=  {<h1>Users</h1>}/>
         </Route>
         <Route path='Model' element= {<ModelH/>}/>
