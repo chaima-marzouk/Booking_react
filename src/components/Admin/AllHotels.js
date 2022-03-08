@@ -1,10 +1,8 @@
 
-
 import Button from '@mui/material/Button';
 import { Table } from '@mui/material';
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
-
 const MyComponent = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([])
@@ -37,7 +35,7 @@ const MyComponent = () => {
       </div>
     )}
 
-<Table striped bordered hover>
+<Table >
   <thead>
     <tr>
       <th>ID</th>
@@ -57,11 +55,10 @@ const MyComponent = () => {
   </tbody>
 </Table>
 
+
     </div>
   )
 }
 
 export default MyComponent;
-
-
     

@@ -142,7 +142,7 @@ const addHotel = (props) => {
       
       </form>
 
-   
+
     </Box>
         </Box>
       </Modal>
