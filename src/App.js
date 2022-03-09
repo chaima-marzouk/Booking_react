@@ -25,9 +25,13 @@ function App() {
          
       </form>
       <Routes>
+
         <Route path='signin' element= {<SignIn/>}/>
+
         <Route path='signup' element= {<SignUp/>}/>
+
         <Route path='profil' element= {<Profil/>}/>
+
         <Route path='Dashbaord' element= {<Dashboard/>}>
               <Route path = "hotels" element=  {<Hotels/>}/>
               <Route path = "users" element=  {<h1>Users</h1>}/>
