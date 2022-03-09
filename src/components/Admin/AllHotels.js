@@ -25,6 +25,7 @@ const MyComponent = () => {
     fetchData();
   }, []);
 
+  
   return (
     <div>
     {loading && <div>Loading</div>}
