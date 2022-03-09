@@ -62,7 +62,7 @@ class TableUser extends React.Component {
                                 <TableCell  align="right">Id</TableCell>
                                 <TableCell  align="right">Username</TableCell>
                                 <TableCell  align="right">Email</TableCell>
-                                <TableCell  align="right">Password</TableCell>
+                                <TableCell  align="right">Role</TableCell>
                                 <TableCell  align="right">Action</TableCell>
                             </TableRow>
                         </TableHead>
@@ -75,7 +75,7 @@ class TableUser extends React.Component {
                                     <TableCell  align="right">{user._id}</TableCell>
                                     <TableCell  align="right">{user.name}</TableCell>
                                     <TableCell  align="right">{user.email}</TableCell>
-                                    <TableCell  align="right">{user.password}</TableCell>
+                                    <TableCell  align="right">{user.role}</TableCell>
                                     <TableCell  align="right">
                                         <Button variant="contained" color="warning">Update</Button>
                                         <Button  variant="contained" color="error" onClick={()=>this.handleDelete(user._id)} >Delete</Button>

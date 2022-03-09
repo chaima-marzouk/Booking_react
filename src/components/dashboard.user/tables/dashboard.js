@@ -49,6 +49,11 @@ class DashBoard extends React.Component{
                         <Grid item sx={{height: "100vh", width: "100%",margin: "0%", padding: "0%", paddingRight: "16px"}} xs={10}>
                             <Item sx={{display: "flex", flexDirection: "column", paddingRight: "16px"}}>
                                 <DashBoardStat/>
+                            <Routes>
+                                <Route path="/user" element={<TableUser/>}/>
+                                <Route path='/hotel' element={<h1>hohohohohoho</h1>}/>                        
+                            </Routes>
+
                             </Item>
                         </Grid>
                     </Grid>
@@ -62,4 +67,3 @@ class DashBoard extends React.Component{
 }
 
 
-export default DashBoard;
