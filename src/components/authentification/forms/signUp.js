@@ -51,7 +51,7 @@ class SignUpForm extends React.Component {
             <FormControlLabel label="Remember Me" control={<Checkbox />}/>
             </Box>
             <Box sx={{width: "70%"}}>
-                <Button onClick={this.formSubmit} sx={{width: "100%"}} variant="contained" color="success">Submit</Button>
+                <Button onClick={this.formSubmit} sx={{width: "100%"}}  variant="contained" type="Submit" color="success">Submit</Button>
             </Box>
             <Box sx={{marginTop: "10px"}}>
             <Link href="/signin" underline="hover">
