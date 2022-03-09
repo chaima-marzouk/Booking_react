@@ -52,7 +52,7 @@ class UserModal extends React.Component {
         e.preventDefault()
         console.log(e)
 
-        const user = axios.post("http://localhost:8080/api/users/signup",{
+        const user = axios.post("http://localhost:8080/api/users/create",{
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
