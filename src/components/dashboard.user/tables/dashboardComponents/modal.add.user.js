@@ -65,6 +65,8 @@ class UserModal extends React.Component {
                 console.log(err)
             })
 
+            window.location = '/Dashbaord/users'
+
     }
 
 
