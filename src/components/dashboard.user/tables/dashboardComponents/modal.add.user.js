@@ -50,6 +50,7 @@ class UserModal extends React.Component {
 
     handleSubmit = async (e)=>{
         e.preventDefault()
+        console.log(e)
 
         const user = axios.post("http://localhost:8080/api/users/signup",{
             name: this.state.name,

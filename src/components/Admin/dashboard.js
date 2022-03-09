@@ -18,6 +18,7 @@ import ModalUser from './modal_add_User';
 import ModalHotel from './modal_Add_Hotel';
 // import AllHotels from './AllHotels'
 import AllHotels from './AllHotels'
+import Grid from "@mui/material/Grid"
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -41,6 +42,9 @@ const ResponsiveAppBar = () => {
   };
 
   return    <Box sx={{width: "100%", height:"100%"}}>
+    <Grid sx={{width: '100%', height: '100vh', margin: "0%", padding: "0%"}} container spacing={2}>
+   
+                           
   <AppBar position="static">
 <Container maxWidth="xl">
 <Toolbar disableGutters>
@@ -54,7 +58,7 @@ Booking ❤
 </Typography>
 
 
-<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+<Box>
 <IconButton
 size="large"
 aria-label="account of current user"
@@ -134,18 +138,14 @@ onClose={handleCloseUserMenu}
 </Container>
 </AppBar>
 
-<Box>
+<Grid item sx={{height: "100vh", width: "100%",margin: "0%", padding: "0%",display: "flex", justifyContent: "center", alignItems: "center"}} xs={2}>
 
 <SideBar/>
- <Outlet />
-</Box>
-
-{/* <AllHotels /> */}
-
-
-
-
-
+</Grid>
+<Grid item sx={{ width: "100%",margin: "0%", padding: "0%"}} xs={10}>
+ <Outlet/>
+ </Grid>
+ </Grid>
 
 </Box>
 

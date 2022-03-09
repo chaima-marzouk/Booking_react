@@ -8,7 +8,7 @@ class SideBar extends React.Component {
         return<Box  
                    sx={{
             width: 200,
-            height: '100vh',
+            height: '95vh',
             padding: '2rem 0',
             backgroundColor: 'white',
             marginLeft: '151px',

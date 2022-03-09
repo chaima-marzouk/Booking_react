@@ -5,11 +5,13 @@ import SignUp from './components/authentification/signUp';
 import Profil from './components/profil';
 import React  from 'react';
 import Dashboard from './components/Admin/dashboard'
+import Dashboard2 from './components/dashboard.user/tables/dashboard'
 import SideBar from './components/Admin/sidebar';
 import ModelH from './components/Admin/modal_Add_Hotel';
 import ModelU from './components/Admin/modal_add_User';
 import Hotels from './components/Admin/AllHotels'
-// import  Hotels  from '@mui/icons-material';
+// import Users from './components/dashboard.user/tables/dashboard'
+import TableUser from "./components/dashboard.user/tables/dashboardComponents/tableUser";
 
 
 
@@ -34,7 +36,7 @@ function App() {
 
         <Route path='Dashbaord' element= {<Dashboard/>}>
               <Route path = "hotels" element=  {<Hotels/>}/>
-              <Route path = "users" element=  {<h1>Users</h1>}/>
+              <Route path = "users" element=  {<TableUser/>}/>
         </Route>
         <Route path='Model' element= {<ModelH/>}/>
       
