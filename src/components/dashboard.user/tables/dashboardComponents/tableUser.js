@@ -32,6 +32,8 @@ class TableUser extends React.Component {
                             .then((res)=>{
                                 this.setState({users: res.data})
                                 console.log(this.state.users)
+                                
+
                             })
                             .catch((err)=>{
                                 console.log(err)
@@ -39,10 +41,11 @@ class TableUser extends React.Component {
     }
 
     handleDelete = (id)=>{
-        const users = axios.delete("http://localhost:8080/api/users/"+id)
+        const users = axios.delete("http://localhost:8080/api/users/delete/"+id)
                      .then((res)=>{
                         this.setState({users: res.data})
                          console.log(res)
+                         window.location = '/Dashbaord/users'
                      })
                      .catch((err)=>{
                          console.log(err)
