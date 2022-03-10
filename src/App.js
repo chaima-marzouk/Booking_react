@@ -4,14 +4,11 @@ import SignIn from './components/authentification/signIn';
 import SignUp from './components/authentification/signUp';
 import Profil from './components/profil';
 import React  from 'react';
-import Dashboard from './components/Admin/dashboard'
-import Dashboard2 from './components/dashboard.user/tables/dashboard'
-import SideBar from './components/Admin/sidebar';
+import Dashboard  from './components/Admin/dashboard';
+
+// import SideBar from './components/Admin/sidebar';
 import ModelH from './components/Admin/modal_Add_Hotel';
-import ModelU from './components/Admin/modal_add_User';
 import Hotels from './components/Admin/AllHotels'
-// import Users from './components/dashboard.user/tables/dashboard'
-import TableUser from "./components/dashboard.user/tables/dashboardComponents/tableUser";
 
 
 
@@ -32,7 +29,6 @@ function App() {
         <Route path='profil' element= {<Profil/>}/>
         <Route path='Dashbaord' element= {<Dashboard/>}>
               <Route path = "hotels" element=  {<Hotels/>}/>
-              <Route path = "users" element=  {<TableUser/>}/>
         </Route>
         <Route path='Model' element= {<ModelH/>}/>
       
