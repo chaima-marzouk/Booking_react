@@ -5,8 +5,6 @@ import SignUp from './components/authentification/signUp';
 import Profil from './components/profil';
 import React  from 'react';
 import Dashboard  from './components/Admin/dashboard';
-
-// import SideBar from './components/Admin/sidebar';
 import ModelH from './components/Admin/modal_Add_Hotel';
 import Hotels from './components/Admin/AllHotels'
 
