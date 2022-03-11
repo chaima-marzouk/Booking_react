@@ -10,34 +10,32 @@ const MyComponent = () => {
   const [loading, setLoading] = useState(true);
 const [data, setData] = useState([])
 
-useEffect(() => {
-  const fetchData = async () =>{
-    setLoading(true);
-    try {
-      const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
-      setData(Object.values(hotels));
-      // console.log(hotels)
-    } catch (error) {
-      console.error(error.message);
+  useEffect(() => {
+    const fetchData = async () =>{
+      setLoading(true);
+      try {
+        const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
+        setData(Object.values(hotels));
+        // console.log(hotels)
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
     }
-    setLoading(false);
-  }
 
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
-
- 
-
-  const onDelete = (id) => {
-    axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
-    window.location = '/Dashbaord/hotels';
-   
-  }
-
-  console.log(data)
 
   
+
+    const onDelete = (id) => {
+      axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
+      window.location = '/Dashbaord/hotels'
+    
+    }
+
+ 
   return (
     <div>
     {loading && <div>Loading</div>}
@@ -58,12 +56,12 @@ useEffect(() => {
 
     </tr>
   </thead>
-  <tbody>
+  <tbody> 
   {data.map(item => ( <tr><td>{item.id}</td>
   <td>{item.name}</td>
    <td>{item.stars}</td>
    <td>{item.description}</td>
-   <td><button onClick={onDelete}>Delete</button> 
+   <td><button onClick={() => onDelete(item.id)}>Delete</button> 
    <button>Update</button></td></tr> ))}
   </tbody>
 </Table>
