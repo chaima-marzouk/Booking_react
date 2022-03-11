@@ -6,42 +6,36 @@ import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 
 const MyComponent = () => {
+
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([])
+const [data, setData] = useState([])
 
-  useEffect(() => {
-    const fetchData = async () =>{
-      setLoading(true);
-      try {
-        const hotels = await axios.get('http://localhost:8080/api/hotels/');
-        console.log(hotels)
-        setData(Object.values(hotels));
-      } catch (error) {
-        console.error(error.message);
-      }
-      setLoading(false);
+useEffect(() => {
+  const fetchData = async () =>{
+    setLoading(true);
+    try {
+      const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
+      setData(Object.values(hotels));
+      // console.log(hotels)
+    } catch (error) {
+      console.error(error.message);
     }
-    
-
-    fetchData();
-  }, []);
-
-  const Update = (e) =>{
-    e.preventDefault();
-    const hotel = {
-      name : this.state.name,
-      stars : this.state.stars,
-      description : this.description
-    }
-
-    axios.put('http://localhost:8080/api/hotels', hotel)
-     .then(res => console.log(res.data));
+    setLoading(false);
   }
+
+  fetchData();
+}, []);
+
+
+ 
 
   const onDelete = (id) => {
     axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
+    window.location = '/Dashbaord/hotels';
    
   }
+
+  console.log(data)
 
   
   return (
@@ -65,15 +59,12 @@ const MyComponent = () => {
     </tr>
   </thead>
   <tbody>
-  {data.map(item=> {
-     <tr>
-  <td>{item.id}</td>
+  {data.map(item => ( <tr><td>{item.id}</td>
   <td>{item.name}</td>
    <td>{item.stars}</td>
    <td>{item.description}</td>
-   <td><Button onClick={() => onDelete(item.id)}>Delete</Button>
-   <button onClick={Update}>Update</button></td></tr> 
-   })}
+   <td><button onClick={onDelete}>Delete</button> 
+   <button>Update</button></td></tr> ))}
   </tbody>
 </Table>
 

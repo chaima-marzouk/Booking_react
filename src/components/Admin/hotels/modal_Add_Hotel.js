@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -6,7 +5,6 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
-// import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -70,23 +68,7 @@ export default function BasicModal() {
       window.location = '/Dashbaord/hotels'
   };
 
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () =>{
-      setLoading(true);
-      try {
-        const {data: response} = await axios.get('http://localhost:8080/api/hotels/');
-        setData(response);
-      } catch (error) {
-        console.error(error.message);
-      }
-      setLoading(false);
-    }
-
-    fetchData();
-  }, []);
+ 
 
   return (
     <div>
