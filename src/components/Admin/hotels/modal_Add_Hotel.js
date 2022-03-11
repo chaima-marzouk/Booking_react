@@ -70,12 +70,22 @@ export default function BasicModal() {
       window.location = '/Dashbaord/hotels'
   };
 
-  useEffect(() => {
-    // GET request using axios inside useEffect React hook
-    axios.get('https://api.npms.io/v2/search?q=react')
-        .then(response => setTotalReactPackages(response.data.total));
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([])
 
-  // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  useEffect(() => {
+    const fetchData = async () =>{
+      setLoading(true);
+      try {
+        const {data: response} = await axios.get('http://localhost:8080/api/hotels/');
+        setData(response);
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    }
+
+    fetchData();
   }, []);
 
   return (
