@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -12,7 +12,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select' ;
-import React ,{useState} from 'react';
+import React  from 'react';
 
 
 const style = {
@@ -32,44 +32,6 @@ const Input = styled('input')({
 
 export default function BasicModal() {
   
-  // const url ="http://localhost:8080/api/hotels/hotel";
-  // Declare a new state variable, which we'll call "count"
-  const [name, setname] = useState('');
-  const [description, setdisc] = useState('');
-  const [stars, setstars] = useState('');
-    
-
-
- const url= axios.post('http://localhost:8080/api/hotels/hotel',{
-    name,
-    description,
-    stars
-
-
-  })
-
-
-const addHotel = (props) => {
-  props.preventDefault();
-  axios.post(url,{
-    name:name,
-    description:description,
-    
-    stars:stars,
-   
-  
-  
-  }).then((res) => {
-
-    console.log(res.data);
-
-    window.location="Dashbaord"
-  });
-}
-  // Declare a new state variable, which we'll call "count"
- 
-
-
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -104,15 +66,15 @@ const addHotel = (props) => {
 
 
 
-        <form  onSubmit={addHotel}>
+        <form>
 
-      <TextField id="outlined-basic" onChange={(e)=>setname(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter hotel Name" name='fname'  />
-      <TextField id="outlined-basic"onChange={(e)=>setdisc(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter Descreption " name='ldescription'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please enter hotel Name" name='fname'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please enter Descreption " name='ldescription'  />
       
     
       <FormControl fullWidth>
   <InputLabel id="outlined-basic"   >Stars</InputLabel>
-  <Select Id="outlined-basic"  onChange={(e)=>setstars(e.target.value)}  sx={{marginBottom:"20px", width:"80%"}} id="outlined-basic"  name='stars' label="Age" >
+  <Select Id="outlined-basic"   sx={{marginBottom:"20px", width:"80%"}} id="outlined-basic"  name='stars' label="Age" >
     <MenuItem value={1}>⭐</MenuItem>
     <MenuItem value={2}>⭐⭐</MenuItem>
     <MenuItem value={3}>⭐⭐⭐</MenuItem>
