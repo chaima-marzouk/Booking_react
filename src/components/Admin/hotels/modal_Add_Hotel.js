@@ -12,7 +12,8 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select' ;
-import React  from 'react';
+import React, {useState, useEffect}  from 'react';
+import axios from 'axios';
 
 
 const style = {
@@ -36,6 +37,46 @@ export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+  const [name, setEmail] = useState('')
+  const [description, setDescription] = useState('')
+  const [stars, setStars] = useState('')
+
+  function handlEmail(e){
+    setEmail(e.target.value)
+  }
+  function handlDescription(e){
+    setDescription(e.target.value)
+  }
+  function handlStars(e){
+    setStars(e.target.value)
+  }
+
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const data = { name, description, stars };
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    fetch("http://localhost:8080/api/hotels/hotel", requestOptions)
+      .then(response => response.json())
+      .then(res => console.log(res));
+
+      window.location = '/Dashbaord/hotels'
+  };
+
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios.get('https://api.npms.io/v2/search?q=react')
+        .then(response => setTotalReactPackages(response.data.total));
+
+  // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
 
   return (
     <div>
@@ -65,16 +106,17 @@ export default function BasicModal() {
     >
 
 
+          <form>
 
-        <form>
-
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please enter hotel Name" name='fname'  />
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please enter Descreption " name='ldescription'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} value={name} onChange={handlEmail} label="Please enter hotel Name" name='name'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={description} onChange={handlDescription} label="Please enter Descreption " name='description'  />
       
     
       <FormControl fullWidth>
-  <InputLabel id="outlined-basic"   >Stars</InputLabel>
-  <Select Id="outlined-basic"   sx={{marginBottom:"20px", width:"80%"}} id="outlined-basic"  name='stars' label="Age" >
+  <InputLabel id="outlined-basic">Stars</InputLabel>
+  <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
+  value={stars} onChange={handlStars}
+  id="outlined-basic"  name='stars' label="Age" >
     <MenuItem value={1}>⭐</MenuItem>
     <MenuItem value={2}>⭐⭐</MenuItem>
     <MenuItem value={3}>⭐⭐⭐</MenuItem>
@@ -99,10 +141,10 @@ export default function BasicModal() {
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
-      <Button  type ="submit" >Add Hotel</Button>
+      <Button  type ="submit" onClick={handleSubmit} >Add Hotel</Button>
     </Stack>
       
-      </form>
+    </form>
 
    
     </Box>
