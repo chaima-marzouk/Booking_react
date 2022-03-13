@@ -11,7 +11,7 @@ import HeaderSection from './Header';
 
 const styling = {
     width: "100%",
-    height: "100vh",
+    minHeight: "100vh",
     backgroundImage: `url(${img})`,
     backgroundPosition: "center",
     display: "flex",

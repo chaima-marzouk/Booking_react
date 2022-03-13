@@ -9,7 +9,7 @@ import '@fontsource/roboto/700.css';
 
 const paperStyling = {
     width: '90%',
-    height: '80%',
+    height: '80vh',
     backgroundColor: 'rgba(238,238,238,0.2)',
 }
 

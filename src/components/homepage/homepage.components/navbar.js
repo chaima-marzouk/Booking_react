@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 
 const Navbar = ()=>{
     return (<AppBar position='fixed' sx={{backgroundColor: "black"}}>
-                <Toolbar >
+                <Toolbar sx={{height: "100%"}}>
                     <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
                         LOGO
                     </Typography>
@@ -18,9 +18,10 @@ const Navbar = ()=>{
                         <Button sx={{ my: 2, color: 'white', display: 'block' }}>Hotels</Button>
                     </Box>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'end',height:"100%"}}>
-                        <Button  variant='contained' color='primary' sx={{height: '10%'}}>Hotels</Button>
-                        <Button sx={{ my: 2, color: 'white', display: 'block' }}>Hotels</Button>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center", justifyContent:'end',height:"10%"}}>
+                        <Button href='/signin'  sx={{ my: 2, color: 'white', display: 'block' }}>Login</Button>
+                        <Button href='/signup'  variant='contained' color='primary' sx={{height: '30px'}}>Register</Button>
+
                     </Box>
 
 
