@@ -20,6 +20,7 @@ const  HomePage = (props)=>{
    return  (<Box sx={styling}>
                 <Navbar/>
                 <HomePageHeader/>
+                <StatSection/>
                 <Footer/>
             </Box>)
 }
