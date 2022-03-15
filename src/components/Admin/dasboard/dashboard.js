@@ -32,6 +32,8 @@ const ResponsiveAppBar = () => {
   const [userTable, setUserTable] = useState(false)
   const [hotelTable, setHotelTable] = useState(false)
 
+ 
+
   const handleHotelTable = (hotelTable)=> {
     setHotelTable(hotelTable)
   }

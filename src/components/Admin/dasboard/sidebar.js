@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function SideBar({hotelTable, userTable, setUserTable, setHotelTable}) {
-    // console.log(props)
 
-  
-    
         return <Box  
                    sx={{
             width: 200,
@@ -26,7 +23,8 @@ function SideBar({hotelTable, userTable, setUserTable, setHotelTable}) {
                 marginTop: "222px"
              }} 
              
-             variant="contained" display="inline" onClick={() => setHotelTable(!hotelTable) && setUserTable(userTable)}>Hotels</Button> 
+             variant="contained" display="inline" onClick={() => { setUserTable(userTable); setHotelTable(!hotelTable)}}
+             >Hotels</Button> 
              
              <Button
               sx={{
@@ -34,7 +32,7 @@ function SideBar({hotelTable, userTable, setUserTable, setHotelTable}) {
                 marginBottom: "39px"
              }}
               variant="contained" display="inline"
-              onClick={() => {setUserTable(!userTable) && setHotelTable(hotelTable)}}
+              onClick={() => {setUserTable(!userTable); setHotelTable(hotelTable)}}
               >Users</Button>
         </Box>
 
