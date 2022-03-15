@@ -4,16 +4,38 @@ import Button from '@mui/material/Button';
 import { Table } from '@mui/material';
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import UpdateModal from './update_hotel_modal'
 const MyComponent = () => {
 
   const [loading, setLoading] = useState(true);
-const [data, setData] = useState([])
+  const [data, setData] = useState([])
+
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+const onDelete = (id) => {
+  axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
+ 
+    const fetchData = async () =>{
+      try {
+        const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
+        setData(Object.values(hotels));
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+    fetchData() ;
+ 
+
+}
 
   useEffect(() => {
     const fetchData = async () =>{
-      setLoading(true);
       try {
         const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
         setData(Object.values(hotels));
@@ -25,20 +47,8 @@ const [data, setData] = useState([])
     }
 
     fetchData();
-  }, []);
+  });
 
-
-  
-
-    const onDelete = (id) => {
-      axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
-
-
-      // e.preventDefault();
-    
-    }
-
- 
   return (
     <div>
     {loading && <div>Loading</div>}
@@ -56,7 +66,6 @@ const [data, setData] = useState([])
       <th>Stars</th>
       <th>Descreption </th>
       <th>Setting </th>
-
     </tr>
   </thead>
   <tbody> 
@@ -64,8 +73,11 @@ const [data, setData] = useState([])
   <td>{item.name}</td>
    <td>{item.stars}</td>
    <td>{item.description}</td>
-   <td><button onClick={() => onDelete(item.id)}>Delete</button> 
-   <button onClick={UpdateModal}>Update</button></td></tr> ))}
+   <td><Button sx={{ color: "white", backgroundColor: "red"}} variant="contained"  onClick={() => onDelete(item.id)}>Delete</Button> 
+   <Button sx={{ color: "white", marginLeft:"20px"}} onClick={() => setOpen(true)
+  }variant="contained" color='primary'>Update</Button></td>
+   {open && <UpdateModal open={open} setOpen={setOpen}  setOpen={setOpen}/> }
+   </tr> ))}
   </tbody>
 </Table>
 

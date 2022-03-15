@@ -29,17 +29,15 @@ const Input = styled('input')({
   display: 'none',
 });
 
-export default function BasicModal() {
-  
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-
+export default function BasicModal({open, setOpen}) {
+ 
   const [name, setEmail] = useState('')
   const [description, setDescription] = useState('')
   const [stars, setStars] = useState('')
+
+  const handleClose = () => {
+    setOpen(!open);
+  };
 
   function handlEmail(e){
     setEmail(e.target.value)
@@ -65,21 +63,17 @@ export default function BasicModal() {
       .then(response => response.json())
       .then(res => console.log(res));
 
-      window.location = '/Dashbaord/hotels'
   };
 
  
 
   return (
     <div>
-      <Button sx={{ color: "white", marginLeft:"30px"}} onClick={handleOpen} variant="contained" color='warning'>New Hotel</Button>
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-
-        
+        onClose={handleClose} 
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -103,17 +97,17 @@ export default function BasicModal() {
       
     
       <FormControl fullWidth>
-  <InputLabel id="outlined-basic">Stars</InputLabel>
-  <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
-  value={stars} onChange={handlStars}
-  id="outlined-basic"  name='stars' label="Age" >
-    <MenuItem value={1}>⭐</MenuItem>
-    <MenuItem value={2}>⭐⭐</MenuItem>
-    <MenuItem value={3}>⭐⭐⭐</MenuItem>
-    <MenuItem value={4}>⭐⭐⭐⭐</MenuItem>
-    <MenuItem value={5}>⭐⭐⭐⭐⭐</MenuItem>
-    </Select>
-  </FormControl>
+            <InputLabel id="outlined-basic">Stars</InputLabel>
+            <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
+                value={stars} onChange={handlStars}
+                id="outlined-basic"  name='stars' label="Age" >
+                    <MenuItem value={1}>⭐</MenuItem>
+                    <MenuItem value={2}>⭐⭐</MenuItem>
+                    <MenuItem value={3}>⭐⭐⭐</MenuItem>
+                    <MenuItem value={4}>⭐⭐⭐⭐</MenuItem>
+                    <MenuItem value={5}>⭐⭐⭐⭐⭐</MenuItem>
+            </Select>
+      </FormControl>
 
    <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}}  component="label">  Image Cover 
     <input type="file"  accept="image/*" hidden/>
@@ -122,8 +116,7 @@ export default function BasicModal() {
    <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%"}}  component="label">  Images Hotel 
     <input type="file" multiple   accept="image/*" hidden  />
     </Button>
-    
-      {/* <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please upload picture " disabled defaultValue="Disabled" variant="outlined" /> */}
+
       <label htmlFor="icon-button-file">
         <Input accept="image/*" id="icon-button-file" type="file" />
         <IconButton color="primary" aria-label="upload picture" component="span">
