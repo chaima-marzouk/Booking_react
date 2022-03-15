@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -6,13 +5,13 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
-// import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select' ;
-import React ,{useState} from 'react';
+import React, {useState, useEffect}  from 'react';
+import axios from 'axios';
 
 
 const style = {
@@ -32,48 +31,43 @@ const Input = styled('input')({
 
 export default function BasicModal() {
   
-  // const url ="http://localhost:8080/api/hotels/hotel";
-  // Declare a new state variable, which we'll call "count"
-  const [name, setname] = useState('');
-  const [description, setdisc] = useState('');
-  const [stars, setstars] = useState('');
-    
-
-
- const url= axios.post('http://localhost:8080/api/hotels/hotel',{
-    name,
-    description,
-    stars
-
-
-  })
-
-
-const addHotel = (props) => {
-  props.preventDefault();
-  axios.post(url,{
-    name:name,
-    description:description,
-    
-    stars:stars,
-   
-  
-  
-  }).then((res) => {
-
-    console.log(res.data);
-
-    window.location="Dashbaord"
-  });
-}
-  // Declare a new state variable, which we'll call "count"
- 
-
-
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+  const [name, setEmail] = useState('')
+  const [description, setDescription] = useState('')
+  const [stars, setStars] = useState('')
+
+  function handlEmail(e){
+    setEmail(e.target.value)
+  }
+  function handlDescription(e){
+    setDescription(e.target.value)
+  }
+  function handlStars(e){
+    setStars(e.target.value)
+  }
+
+
+  const handleSubmit = e => {
+    
+    const data = { name, description, stars };
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    fetch("http://localhost:8080/api/hotels/hotel", requestOptions)
+    .then(response => response.json())
+    .then(res => console.log(res));
+    e.preventDefault();
+
+  };
+
+ 
 
   return (
     <div>
@@ -82,17 +76,12 @@ const addHotel = (props) => {
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-
-        
+        aria-describedby="modal-modal-description" 
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Add New Hotel
           </Typography>
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
           <Box
       component="form"
       sx={{
@@ -103,16 +92,17 @@ const addHotel = (props) => {
     >
 
 
+          <form>
 
-        <form  onSubmit={addHotel}>
-
-      <TextField id="outlined-basic" onChange={(e)=>setname(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter hotel Name" name='fname'  />
-      <TextField id="outlined-basic"onChange={(e)=>setdisc(e.target.value)} sx={{marginBottom:"20px", width:"80%"}} label="Please enter Descreption " name='ldescription'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} value={name} onChange={handlEmail} label="Please enter hotel Name" name='name'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={description} onChange={handlDescription} label="Please enter Descreption " name='description'  />
       
     
       <FormControl fullWidth>
-  <InputLabel id="outlined-basic"   >Stars</InputLabel>
-  <Select Id="outlined-basic"  onChange={(e)=>setstars(e.target.value)}  sx={{marginBottom:"20px", width:"80%"}} id="outlined-basic"  name='stars' label="Age" >
+  <InputLabel id="outlined-basic">Stars</InputLabel>
+  <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
+  value={stars} onChange={handlStars}
+  id="outlined-basic"  name='stars' label="Age" >
     <MenuItem value={1}>⭐</MenuItem>
     <MenuItem value={2}>⭐⭐</MenuItem>
     <MenuItem value={3}>⭐⭐⭐</MenuItem>
@@ -137,10 +127,10 @@ const addHotel = (props) => {
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
-      <Button  type ="submit" >Add Hotel</Button>
+      <Button  type ="button" onClick={handleSubmit} >Add Hotel</Button>
     </Stack>
       
-      </form>
+    </form>
 
    
     </Box>
