@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 import UpdateModal from './update_hotel_modal'
 const MyComponent = () => {
 
-  const {id} = useParams();
   const [loading, setLoading] = useState(true);
 const [data, setData] = useState([])
 
@@ -33,7 +32,6 @@ const [data, setData] = useState([])
 
     const onDelete = (id) => {
       axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
-      window.location = '/Dashbaord/hotels'
 
 
       // e.preventDefault();

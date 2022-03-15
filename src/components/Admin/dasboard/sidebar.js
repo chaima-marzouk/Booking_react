@@ -4,9 +4,10 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-function SideBar() {
-    const [userTable, setUserTable] = useState(false)
-    const [hotelTable, setHotelTable] = useState(false)
+function SideBar({hotelTable, userTable, setUserTable, setHotelTable}) {
+    // console.log(props)
+
+  
     
         return <Box  
                    sx={{
@@ -17,7 +18,7 @@ function SideBar() {
             marginLeft: '151px',
             boxShadow: '0px 2px 8px rgba(0, 0, 0, .2)'
           }}>
-              <Link to="hotels" underline="hover">
+              
              <Button
              sx={{
                 width: "64%",
@@ -25,18 +26,16 @@ function SideBar() {
                 marginTop: "222px"
              }} 
              
-             variant="contained" display="inline" onClick={() => setHotelTable(!hotelTable)}>Hotels</Button> 
-             </Link>
-             <Link to="users" underline="hover">
+             variant="contained" display="inline" onClick={() => setHotelTable(!hotelTable) && setUserTable(userTable)}>Hotels</Button> 
+             
              <Button
               sx={{
                 width: "64%",
                 marginBottom: "39px"
              }}
               variant="contained" display="inline"
-              onClick={() => setUserTable(!userTable)}
+              onClick={() => {setUserTable(!userTable) && setHotelTable(hotelTable)}}
               >Users</Button>
-              </Link>
         </Box>
 
     

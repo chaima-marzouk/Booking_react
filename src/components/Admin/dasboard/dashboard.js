@@ -1,4 +1,6 @@
 import * as React from 'react';
+import{useState} from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,21 +13,32 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import {Outlet} from "react-router-dom"
-import SideBar from './sidebar';
-import SignIn from '../../authentification/signIn';
+import SideBar from './sidebar'
+import UserTable from '../users/userTable'
 import ModalUser from '../users/modal_add_User';
 import ModalHotel from '../hotels/modal_Add_Hotel';
 import ModalUpdate from '../hotels/update_hotel_modal';
 // import AllHotels from './AllHotels'
 import AllHotels from '../hotels/AllHotels'
 import Grid from "@mui/material/Grid"
+import HotelTable from '../hotels/AllHotels'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const [userTable, setUserTable] = useState(false)
+  const [hotelTable, setHotelTable] = useState(false)
+
+  const handleHotelTable = (hotelTable)=> {
+    setHotelTable(hotelTable)
+  }
+  const handleUserTable = (userTable)=> {
+    setUserTable(userTable)
+    setHotelTable(hotelTable)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -142,10 +155,13 @@ onClose={handleCloseUserMenu}
 
 <Grid item sx={{height: "100vh", width: "100%",margin: "0%", padding: "0%",display: "flex", justifyContent: "center", alignItems: "center"}} xs={2}>
 
-<SideBar/>
+<SideBar setHotelTable= {handleHotelTable} setUserTable= {handleUserTable} />
 </Grid>
 <Grid item sx={{ width: "100%",margin: "0%", padding: "0%"}} xs={10}>
- <Outlet/>
+
+ {hotelTable && <HotelTable/>}
+ {userTable && <UserTable/>}
+ 
  </Grid>
  </Grid>
 
