@@ -12,6 +12,7 @@ import Item from "@mui/material/ListItem"
 import TableUser from "./dashboardComponents/tableUser";
 import DashBoardStat from "./dashboardComponents/dashboardStat";
 import DashBoardN from "./dashboardComponents/dashBoardN";
+import '../../../css/dashboard.css';
 
 
 
@@ -23,7 +24,7 @@ class DashBoard extends React.Component{
                         <AppBar position="static">
                             <Toolbar>
                             <IconButton
-                                size="large"
+                                // size="large"
                                 edge="start"
                                 color="inherit"
                                 aria-label="menu"
@@ -45,8 +46,8 @@ class DashBoard extends React.Component{
                                 <DashBoardN />
                             </Item>
                         </Grid>
-                        <Grid item sx={{height: "100vh", width: "100%",margin: "0%", padding: "0%"}} xs={10}>
-                            <Item sx={{display: "flex", flexDirection: "column"}}>
+                        <Grid item sx={{height: "100vh", width: "100%",margin: "0%", padding: "0%", paddingRight: "16px"}} xs={10}>
+                            <Item sx={{display: "flex", flexDirection: "column", paddingRight: "16px"}}>
                                 <DashBoardStat/>
                             <Routes>
                                 <Route path="users" element={<TableUser/>}/>
@@ -66,4 +67,3 @@ class DashBoard extends React.Component{
 }
 
 
-export default DashBoard;
