@@ -109,7 +109,7 @@ export default function BasicModal({open, setOpen}) {
             </Select>
       </FormControl>
 
-   <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}}  component="label">  Image Cover 
+   <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}}  component="label"> Image Cover 
     <input type="file"  accept="image/*" hidden/>
     </Button>
 
@@ -124,7 +124,7 @@ export default function BasicModal({open, setOpen}) {
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
-      <Button  type ="submit" onClick={edit} >Add Hotel</Button>
+      <Button  type ="submit" onClick={edit} >Edit Hotel</Button>
     </Stack>
       
     </form>

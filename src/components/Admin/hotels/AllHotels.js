@@ -74,8 +74,7 @@ const onDelete = (id) => {
    <td>{item.stars}</td>
    <td>{item.description}</td>
    <td><Button sx={{ color: "white", backgroundColor: "red"}} variant="contained"  onClick={() => onDelete(item.id)}>Delete</Button> 
-   <Button sx={{ color: "white", marginLeft:"20px"}} onClick={() => setOpen(true)
-  }variant="contained" color='primary'>Update</Button></td>
+   <Button sx={{ color: "white", marginLeft:"20px"}} onClick={() => setOpen(true) } variant="contained" color='primary'>Update</Button></td>
    {open && <UpdateModal open={open} setOpen={setOpen}  setOpen={setOpen}/> }
    </tr> ))}
   </tbody>
