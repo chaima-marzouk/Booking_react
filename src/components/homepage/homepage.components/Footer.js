@@ -23,7 +23,7 @@ const Footer = (props)=>{
                             Contact Us:
                         </Typography>
                         <TextField  id="outlined-basic" label="Email" variant="filled" color="warning" sx={{backgroundColor: "rgba(238,238,238,0.2)", marginBottom:'10px',width: "50%"}}/>
-                        <TextField id="outlined-basic" label="Your Message" variant="filled" color="warning" sx={{backgroundColor: "rgba(238,238,238,0.2)", marginBottom:'10px',width: "50%"}} />
+                        <TextField id="outlined-basic" label="Your Message" variant="filled" color="warning" sx={{backgroundColor: "rgba(238,238,238,0.2)", marginBottom:'10px',width: "50%", fontColor: "white"}} />
                         <Button sx={{width: "40%", marginTop: "5px"}} variant="contained" color="warning">Submit</Button>
 
                     </Grid>
