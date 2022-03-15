@@ -52,8 +52,9 @@ export default function BasicModal() {
   }
 
 
-  const handleSubmit = e => {
-    
+  const edit = e => {
+    e.preventDefault();
+
     const data = { name, description, stars };
     const requestOptions = {
       method: "POST",
@@ -61,9 +62,8 @@ export default function BasicModal() {
       body: JSON.stringify(data)
     };
     fetch("http://localhost:8080/api/hotels/hotel", requestOptions)
-    .then(response => response.json())
-    .then(res => console.log(res));
-    e.preventDefault();
+      .then(response => response.json())
+      .then(res => console.log(res));
 
       window.location = '/Dashbaord/hotels'
   };
@@ -85,9 +85,7 @@ export default function BasicModal() {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Add New Hotel
           </Typography>
-          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography> */}
+          
           <Box
       component="form"
       sx={{
@@ -133,7 +131,7 @@ export default function BasicModal() {
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
-      <Button  type ="button" onClick={handleSubmit} >Add Hotel</Button>
+      <Button  type ="submit" onClick={edit} >Add Hotel</Button>
     </Stack>
       
     </form>

@@ -2,10 +2,13 @@ import { Box } from '@mui/material';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-class SideBar extends React.Component {
-    render(){
-        return<Box  
+function SideBar() {
+    const [userTable, setUserTable] = useState(false)
+    const [hotelTable, setHotelTable] = useState(false)
+    
+        return <Box  
                    sx={{
             width: 200,
             height: '95vh',
@@ -22,7 +25,7 @@ class SideBar extends React.Component {
                 marginTop: "222px"
              }} 
              
-             variant="contained" display="inline"  >Hotels</Button> 
+             variant="contained" display="inline" onClick={() => setHotelTable(!hotelTable)}>Hotels</Button> 
              </Link>
              <Link to="users" underline="hover">
              <Button
@@ -30,11 +33,13 @@ class SideBar extends React.Component {
                 width: "64%",
                 marginBottom: "39px"
              }}
-              variant="contained" display="inline" >Users</Button>
+              variant="contained" display="inline"
+              onClick={() => setUserTable(!userTable)}
+              >Users</Button>
               </Link>
         </Box>
 
-    }
+    
 }
 
 export default SideBar;

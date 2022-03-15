@@ -11,11 +11,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import {Routes, Route ,Outlet} from "react-router-dom"
+import {Outlet} from "react-router-dom"
 import SideBar from './sidebar';
 import SignIn from '../../authentification/signIn';
 import ModalUser from '../users/modal_add_User';
 import ModalHotel from '../hotels/modal_Add_Hotel';
+import ModalUpdate from '../hotels/update_hotel_modal';
 // import AllHotels from './AllHotels'
 import AllHotels from '../hotels/AllHotels'
 import Grid from "@mui/material/Grid"
@@ -134,6 +135,7 @@ onClose={handleCloseUserMenu}
 </Box>
 <ModalUser/>
 <ModalHotel/>
+<ModalUpdate/>
 </Toolbar>
 </Container>
 </AppBar>

@@ -4,9 +4,11 @@ import Button from '@mui/material/Button';
 import { Table } from '@mui/material';
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
-
+import { useParams } from 'react-router-dom';
+import UpdateModal from './update_hotel_modal'
 const MyComponent = () => {
 
+  const {id} = useParams();
   const [loading, setLoading] = useState(true);
 const [data, setData] = useState([])
 
@@ -32,6 +34,9 @@ const [data, setData] = useState([])
     const onDelete = (id) => {
       axios.delete(`http://localhost:8080/api/hotels/delete/${id}`)
       window.location = '/Dashbaord/hotels'
+
+
+      // e.preventDefault();
     
     }
 
@@ -62,7 +67,7 @@ const [data, setData] = useState([])
    <td>{item.stars}</td>
    <td>{item.description}</td>
    <td><button onClick={() => onDelete(item.id)}>Delete</button> 
-   <button>Update</button></td></tr> ))}
+   <button onClick={UpdateModal}>Update</button></td></tr> ))}
   </tbody>
 </Table>
 
