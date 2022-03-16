@@ -36,8 +36,6 @@ export default function BasicModal({open, setOpen, hotelId}) {
   const [stars, setStars] = useState('')
 
   const [loading, setLoading] = useState(true);
-
-  const _id = hotelId
  
 
 
@@ -71,14 +69,16 @@ export default function BasicModal({open, setOpen, hotelId}) {
 
   };
 
-  const [data, setData] = useState()
+  const [data, setData] = useState({})
+
+
 
   useEffect(() => {
     const fetchData = async () =>{
       try {
-        const data = await axios.get(`http://localhost:8080/api/hotels/hotel/${_id}`);
-
-        console.log('XD', data.data.name);
+        const res = await axios.get(`http://localhost:8080/api/hotels/hotel/${hotelId}`);
+        const test = res.data
+        setData(test);
 
     } catch (error) {
         console.error(error.message);
@@ -87,7 +87,8 @@ export default function BasicModal({open, setOpen, hotelId}) {
 }
 
 fetchData();
-}, []);
+});
+
 
 console.log(data)
 
@@ -118,15 +119,15 @@ console.log(data)
 
           <form>
 
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data} name='name' onChange={handlEmail} />
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={description} label="Please enter Descreption " name='description'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data.name}  name='name' />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data.description}  name='description'  />
       
     
       <FormControl fullWidth>
             <InputLabel id="outlined-basic">Stars</InputLabel>
             <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
-                value={stars} o
-                id="outlined-basic"  name='stars' label="Age" >
+                value={data.stars} 
+                id="outlined-basic"  name='stars'  >
                     <MenuItem value={1}>⭐</MenuItem>
                     <MenuItem value={2}>⭐⭐</MenuItem>
                     <MenuItem value={3}>⭐⭐⭐</MenuItem>

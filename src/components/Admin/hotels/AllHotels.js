@@ -53,7 +53,7 @@ const onDelete = (id) => {
     }
 
     fetchData();
-  }, []);
+  });
 
   return (
     <div>
