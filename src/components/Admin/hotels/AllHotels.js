@@ -10,11 +10,17 @@ const MyComponent = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([])
 
+  const [id, setId] = useState('')
+
+  const handelId = (id) =>{
+      setId(id)
+  }
+
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
+  const handleOpen = (id) => {
+    handelId(id)
+    setOpen(true)
   };
 
 const onDelete = (id) => {
@@ -39,7 +45,7 @@ const onDelete = (id) => {
       try {
         const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
         setData(Object.values(hotels));
-        // console.log(hotels)
+        // console.log(setId)
       } catch (error) {
         console.error(error.message);
       }
@@ -47,7 +53,7 @@ const onDelete = (id) => {
     }
 
     fetchData();
-  });
+  }, []);
 
   return (
     <div>
@@ -74,8 +80,8 @@ const onDelete = (id) => {
    <td>{item.stars}</td>
    <td>{item.description}</td>
    <td><Button sx={{ color: "white", backgroundColor: "red"}} variant="contained"  onClick={() => onDelete(item.id)}>Delete</Button> 
-   <Button sx={{ color: "white", marginLeft:"20px"}} onClick={() => setOpen(true) } variant="contained" color='primary'>Update</Button></td>
-   {open && <UpdateModal open={open} setOpen={setOpen}  setOpen={setOpen}/> }
+   <Button sx={{ color: "white", marginLeft:"20px"}} onClick={() => handleOpen(item.id) } variant="contained" color='primary'>Update</Button></td>
+   {open && <UpdateModal open={open} setOpen={setOpen} hotelId={id} /> }
    </tr> ))}
   </tbody>
 </Table>

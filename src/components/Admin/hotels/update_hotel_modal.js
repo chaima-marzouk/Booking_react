@@ -29,11 +29,17 @@ const Input = styled('input')({
   display: 'none',
 });
 
-export default function BasicModal({open, setOpen}) {
+export default function BasicModal({open, setOpen, hotelId}) {
  
   const [name, setEmail] = useState('')
   const [description, setDescription] = useState('')
   const [stars, setStars] = useState('')
+
+  const [loading, setLoading] = useState(true);
+
+  const _id = hotelId
+ 
+
 
   const handleClose = () => {
     setOpen(!open);
@@ -65,7 +71,26 @@ export default function BasicModal({open, setOpen}) {
 
   };
 
- 
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    const fetchData = async () =>{
+      try {
+        const data = await axios.get(`http://localhost:8080/api/hotels/hotel/${_id}`);
+
+        console.log('XD', data.data.name);
+
+    } catch (error) {
+        console.error(error.message);
+    }
+    setLoading(false);
+}
+
+fetchData();
+}, []);
+
+console.log(data)
+
 
   return (
     <div>
@@ -83,23 +108,24 @@ export default function BasicModal({open, setOpen}) {
           <Box
       component="form"
       sx={{
-        
-      }}
-      noValidate
-      autoComplete="off"
+          
+    }}
+    noValidate
+    autoComplete="off"
     >
+    
 
 
           <form>
 
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} value={name} onChange={handlEmail} label="Please enter hotel Name" name='name'  />
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={description} onChange={handlDescription} label="Please enter Descreption " name='description'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data} name='name' onChange={handlEmail} />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={description} label="Please enter Descreption " name='description'  />
       
     
       <FormControl fullWidth>
             <InputLabel id="outlined-basic">Stars</InputLabel>
             <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
-                value={stars} onChange={handlStars}
+                value={stars} o
                 id="outlined-basic"  name='stars' label="Age" >
                     <MenuItem value={1}>⭐</MenuItem>
                     <MenuItem value={2}>⭐⭐</MenuItem>
@@ -124,12 +150,13 @@ export default function BasicModal({open, setOpen}) {
         </IconButton>
       </label>
       <Stack spacing={2} direction="row">
-      <Button  type ="submit" onClick={edit} >Edit Hotel</Button>
+      <Button type ="submit" onClick={edit} >Edit Hotel</Button>
     </Stack>
       
     </form>
 
    
+
     </Box>
         </Box>
       </Modal>

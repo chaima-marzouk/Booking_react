@@ -64,6 +64,7 @@ export default function BasicModal() {
     .then(response => response.json())
     .then(res => console.log(res));
     e.preventDefault();
+    setOpen(false)
 
   };
 
@@ -119,12 +120,9 @@ export default function BasicModal() {
     <input type="file" multiple   accept="image/*" hidden  />
     </Button>
     
-      {/* <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} label="Please upload picture " disabled defaultValue="Disabled" variant="outlined" /> */}
       <label htmlFor="icon-button-file">
         <Input accept="image/*" id="icon-button-file" type="file" />
-        <IconButton color="primary" aria-label="upload picture" component="span">
-         
-        </IconButton>
+        <IconButton color="primary" aria-label="upload picture" component="span"></IconButton>
       </label>
       <Stack spacing={2} direction="row">
       <Button  type ="button" onClick={handleSubmit} >Add Hotel</Button>
