@@ -31,20 +31,20 @@ const Input = styled('input')({
 
 export default function BasicModal({open, setOpen, hotelId}) {
  
-  const [name, setEmail] = useState('')
+  const [name, setValue] = useState('')
   const [description, setDescription] = useState('')
   const [stars, setStars] = useState('')
 
   const [loading, setLoading] = useState(true);
  
-
+  const [fName, setfName] = useState('');
 
   const handleClose = () => {
     setOpen(!open);
   };
 
-  function handlEmail(e){
-    setEmail(e.target.value)
+  function handlName(e){
+    setfName(e.target.value)
   }
   function handlDescription(e){
     setDescription(e.target.value)
@@ -54,18 +54,28 @@ export default function BasicModal({open, setOpen, hotelId}) {
   }
 
 
+  // function handle(e){
+  //   const newData ={...data}
+  //   newData[e.target.id]=e.target.value
+  //   settData(newData)
+
+  // }
+
+
   const edit = e => {
     e.preventDefault();
 
     const data = { name, description, stars };
     const requestOptions = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    fetch("http://localhost:8080/api/hotels/hotel", requestOptions)
+    fetch(`http://localhost:8080/api/hotels/edit/${hotelId}`, requestOptions)
       .then(response => response.json())
       .then(res => console.log(res));
+
+      setOpen(!open)
 
   };
 
@@ -90,8 +100,17 @@ fetchData();
 });
 
 
-console.log(data)
-
+const [values, setValues] = useState({
+  name: "",
+  stars: "",
+  description: ""
+});
+const handleChange = e => {
+  setValues({
+    ...values,
+    [e.target.name]: e.target.value
+  });
+};
 
   return (
     <div>
@@ -119,14 +138,14 @@ console.log(data)
 
           <form>
 
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data.name}  name='name' />
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}  value={data.description}  name='description'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}onChange={e => setfName(e.target.value)}  value={data.name}  name='name' />
+      <TextField id="outlined-basic"  sx={{marginBottom:"20px", width:"80%"}}  value={data.description} onChange={(e) =>handlDescription(e)}  name='description'  />
       
     
       <FormControl fullWidth>
             <InputLabel id="outlined-basic">Stars</InputLabel>
             <Select Id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} 
-                value={data.stars} 
+                 value={data.stars} onChange={(e) =>handlStars(e)} 
                 id="outlined-basic"  name='stars'  >
                     <MenuItem value={1}>⭐</MenuItem>
                     <MenuItem value={2}>⭐⭐</MenuItem>
