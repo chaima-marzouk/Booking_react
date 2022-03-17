@@ -1,0 +1,13 @@
+    body {
+        background-color: #5c4640;
+    }
+ 
+  .grid {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .grid > div {
+    flex-basis: calc(44% - 0px);
+  }

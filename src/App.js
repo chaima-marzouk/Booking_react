@@ -6,6 +6,9 @@ import SignUp from './components/authentification/signUp';
 import React  from 'react';
 import ModelH from './components/Admin/hotels/modal_Add_Hotel';
 import Dashboard  from './components/Admin/dasboard/dashboard';
+import HotelPage from './components/homepage/hotels_page/hotels';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -24,6 +27,7 @@ function App() {
 
         <Route path='signin' element= {<SignIn/>}/>
         <Route path='/' element= {<Homepage/>}/>
+        <Route path='/Hotels' element= {<HotelPage/>}/>
 
         <Route path='signup' element= {<SignUp/>}/>
         <Route path='Dashbaord' element= {<Dashboard/>}>
