@@ -51,6 +51,7 @@ const CardHotel = ()=>{
   
 }
 
+
 export default CardHotel;
 
 
