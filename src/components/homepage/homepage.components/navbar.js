@@ -14,10 +14,17 @@ const Navbar = ()=>{
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'end',height:"100%" }}>
+                   
+                    <Link  href="/">
+                        <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button>
+                    </Link>
                     <Link  href="/Hotels">
                         <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Hotels</Button>
                     </Link>
-                        <Button sx={{ my: 2, color: 'white', display: 'block' }}>Rooms</Button>
+                    <Link  href="/Hotels">
+                        <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Rooms</Button>
+                    </Link>
+                        
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center", justifyContent:'end',height:"10%"}}>

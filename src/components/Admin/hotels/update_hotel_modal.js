@@ -31,7 +31,7 @@ const Input = styled('input')({
 
 export default function BasicModal({open, setOpen, hotelId}) {
  
-  const [name, setValue] = useState('')
+  const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [stars, setStars] = useState('')
 
@@ -43,8 +43,10 @@ export default function BasicModal({open, setOpen, hotelId}) {
     setOpen(!open);
   };
 
+ 
+
   function handlName(e){
-    setfName(e.target.value)
+    setName(e.target.value)
   }
   function handlDescription(e){
     setDescription(e.target.value)
@@ -53,13 +55,6 @@ export default function BasicModal({open, setOpen, hotelId}) {
     setStars(e.target.value)
   }
 
-
-  // function handle(e){
-  //   const newData ={...data}
-  //   newData[e.target.id]=e.target.value
-  //   settData(newData)
-
-  // }
 
 
   const edit = e => {
@@ -138,8 +133,8 @@ const handleChange = e => {
 
           <form>
 
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}}onChange={e => setfName(e.target.value)}  value={data.name}  name='name' />
-      <TextField id="outlined-basic"  sx={{marginBottom:"20px", width:"80%"}}  value={data.description} onChange={(e) =>handlDescription(e)}  name='description'  />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} onChange={(e) => handlName(e)} label={data.name}  name='name' />
+      <TextField id="outlined-basic"  sx={{marginBottom:"20px", width:"80%"}}  label={data.description} onChange={(e) =>handlDescription(e)}  name='description'  />
       
     
       <FormControl fullWidth>

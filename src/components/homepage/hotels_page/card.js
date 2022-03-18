@@ -4,6 +4,7 @@ import {Button} from 'react-bootstrap';
 import '../../../css/hotel.css'
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
+import img from '../../../hotelImage.jpg'
 
 
 const CardHotel = ()=>{
@@ -31,8 +32,8 @@ const CardHotel = ()=>{
       
       <div className='grid' style={{display: 'flex'}}>
         {data.map(item => (
-    <Card style={{ width: '18rem' ,margin: '55px', display: 'flex'}}>
-    <Card.Img variant="top" src="holder.js/100px180" />
+    <Card style={{ width: '18rem' ,margin: '55px', display: 'flex', border: '2px solid #ed6c02'}}>
+    <Card.Img variant="top" src={img} />
     <Card.Body>
       <Card.Title>{item.name}</Card.Title>
       <Card.Text>
@@ -41,7 +42,7 @@ const CardHotel = ()=>{
       <Card.Text>
       {item.stars}
       </Card.Text>
-      <Button style={{backgroundColor: '#ed6c02'}}>Reserve now !</Button>
+      <Button style={{backgroundColor: '#ed6c02', color: 'black',fontFamily: 'Roboto'}} className='sererve'>Reserve now !</Button>
     </Card.Body>
   </Card> ))}
   </div>

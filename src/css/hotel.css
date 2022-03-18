@@ -11,3 +11,8 @@
   .grid > div {
     flex-basis: calc(44% - 0px);
   }
+
+  .sererve:hover{
+    background-color: black;
+    color: coral;
+  }

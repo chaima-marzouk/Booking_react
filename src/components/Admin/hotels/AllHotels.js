@@ -44,7 +44,7 @@ const onDelete = (id) => {
     const fetchData = async () =>{
       try {
         const {data: hotels} = await axios.get('http://localhost:8080/api/hotels/');
-        
+        setData(Object.values(hotels));
         // console.log(setId)
       } catch (error) {
         console.error(error.message);
