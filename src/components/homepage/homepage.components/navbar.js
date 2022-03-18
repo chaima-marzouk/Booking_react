@@ -3,7 +3,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
+import { Link } from "@mui/material";
 
 
 
@@ -14,8 +14,17 @@ const Navbar = ()=>{
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'end',height:"100%" }}>
+                   
+                    <Link  href="/">
+                        <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button>
+                    </Link>
+                    <Link  href="/Hotels">
                         <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Hotels</Button>
-                        <Button sx={{ my: 2, color: 'white', display: 'block' }}>Hotels</Button>
+                    </Link>
+                    <Link  href="/Hotels">
+                        <Button  sx={{ my: 2, color: 'white', display: 'block' }}>Rooms</Button>
+                    </Link>
+                        
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: "center", justifyContent:'end',height:"10%"}}>
