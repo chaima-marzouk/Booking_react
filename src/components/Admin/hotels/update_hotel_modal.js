@@ -133,7 +133,7 @@ const handleChange = e => {
 
           <form>
 
-      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} onChange={(e) => handlName(e)} label={data.name}  name='name' />
+      <TextField id="outlined-basic" sx={{marginBottom:"20px", width:"80%"}} onChange={(e) => handlName(e)} value={data.name}  name='name' />
       <TextField id="outlined-basic"  sx={{marginBottom:"20px", width:"80%"}}  label={data.description} onChange={(e) =>handlDescription(e)}  name='description'  />
       
     

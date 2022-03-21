@@ -40,6 +40,7 @@ export default function BasicModal() {
   const [name, setEmail] = useState('')
   const [description, setDescription] = useState('')
   const [stars, setStars] = useState('')
+  const [coverImage, setCoverImage] = useState('')
 
   function handlEmail(e){
     setEmail(e.target.value)
@@ -50,16 +51,21 @@ export default function BasicModal() {
   function handlStars(e){
     setStars(e.target.value)
   }
+  function handelCoverImage(e){
+    setCoverImage(e.target.files[0])
+  }
 
 
   const handleSubmit = e => {
-    
-    const data = { name, description, stars };
+
+    const coverImageName = coverImage.name;
+    const data = { name : name, description : description, stars : stars, imageCover : coverImageName };
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
+    console.log(coverImage.name)
     fetch("http://localhost:8080/api/hotels/hotel", requestOptions)
     .then(response => response.json())
     .then(res => console.log(res));
@@ -112,8 +118,8 @@ export default function BasicModal() {
     </Select>
   </FormControl>
 
-   <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}}  component="label">  Image Cover 
-    <input type="file"  accept="image/*" hidden/>
+   <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%",backgroundColor:"#F44336"}} component="label"> Cover Image
+    <input type="file"  onChange={handelCoverImage}  accept="image/*" hidden/>
     </Button>
 
    <Button variant="contained"  sx={{margin:"10px 10px 10px 10px", width:"30%"}}  component="label">  Images Hotel 
